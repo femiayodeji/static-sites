@@ -1,5 +1,8 @@
+from typing import Optional
+
+
 class HTMLNode:
-    def __init__(self, tag: str = None, value: str = None, children: list = None, props: dict = None):
+    def __init__(self, tag: Optional[str] = None, value: Optional[str] = None, children: Optional[list] = None, props: Optional[dict] = None):
         self.tag = tag
         self.value = value
         self.children = children if children is not None else []
@@ -18,7 +21,7 @@ class HTMLNode:
         return f"tag: {self.tag}, value: {self.value}, children: {self.children}, props: {self.props}"
 
 class LeafNode(HTMLNode):
-    def __init__(self, tag: str, value: str, props: dict = None):
+    def __init__(self, tag: Optional[str], value: Optional[str], props: Optional[dict] = None):
         super().__init__(tag, value, None, props)
     
     def to_html(self):
@@ -32,7 +35,7 @@ class LeafNode(HTMLNode):
         return f"tag: {self.tag}, value: {self.value}, props: {self.props}"
 
 class ParentNode(HTMLNode):
-    def __init__(self, tag: str, children: list, props: dict = None):
+    def __init__(self, tag: Optional[str], children: Optional[list], props: Optional[dict] = None):
         super().__init__(tag, None, children, props)
     
     def to_html(self):

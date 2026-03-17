@@ -1,6 +1,6 @@
 import unittest
 
-from textnode import TextNode, TextType, extract_markdown_images, split_nodes_delimiter, split_nodes_image, split_nodes_link, text_node_to_html_node
+from src.textnode import TextNode, TextType, extract_markdown_images, split_nodes_delimiter, split_nodes_image, split_nodes_link, text_node_to_html_node
 
 
 class TestTextNode(unittest.TestCase):
@@ -54,7 +54,7 @@ class TestTextNode(unittest.TestCase):
         self.assertEqual(html_node.props["alt"], "This is an image text node")
     
     def test_unsupported_text_type(self):
-        node = TextNode("This is an unsupported text node", "unsupported")
+        node = TextNode("This is an unsupported text node", "unsupported") # type: ignore
         with self.assertRaises(ValueError):
             text_node_to_html_node(node)
     

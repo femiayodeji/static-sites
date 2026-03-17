@@ -1,8 +1,8 @@
 from textwrap import dedent
 
-from src.textnode import TextNode, TextNode, TextType, split_nodes_delimiter, split_nodes_image, split_nodes_link, text_node_to_html_node
-from src.blocktype import BlockType, block_to_block_type
-from src.htmlnode import ParentNode
+from .textnode import TextNode, TextType, split_nodes_delimiter, split_nodes_image, split_nodes_link, text_node_to_html_node
+from .blocktype import BlockType, block_to_block_type
+from .htmlnode import ParentNode
 
 
 

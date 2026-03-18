@@ -39,12 +39,17 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, bas
         item_path_dest = os.path.join(dest_dir_path, item)
 
         if os.path.isfile(item_path_content) and item.endswith(".md"):
-            generate_page(item_path_content, template_path, item_path_dest.replace(".md", ".html"))
+            generate_page(
+                item_path_content,
+                template_path,
+                item_path_dest.replace(".md", ".html"),
+                basepath,
+            )
         elif os.path.isdir(item_path_content):
             generate_pages_recursive(item_path_content, template_path, item_path_dest, basepath)
 
 def main():
-    basepath = sys.argv
+    basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
 
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     source_dir = os.path.join(project_root, "static")

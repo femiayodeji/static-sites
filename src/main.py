@@ -44,7 +44,7 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, bas
             generate_pages_recursive(item_path_content, template_path, item_path_dest, basepath)
 
 def main():
-    basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
+    basepath = sys.argv
 
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     source_dir = os.path.join(project_root, "static")

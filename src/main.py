@@ -17,11 +17,11 @@ def generate_page(from_path, template_path, dest_path, basepath="/"):
     html_string = markdown_to_html_node(markdown_content).to_html()
     html_title = extract_title(markdown_content)
     
-    template_content.replace("{{ Title }}", html_title)
-    template_content.replace("{{ Content }}", html_string)
+    template_content = template_content.replace("{{ Title }}", html_title)
+    template_content = template_content.replace("{{ Content }}", html_string)
     if basepath:
-        template_content.replace('href="/', f'href="{basepath}')
-        template_content.replace('src="/', f'src="{basepath}')
+        template_content = template_content.replace('href="/', f'href="{basepath}')
+        template_content = template_content.replace('src="/', f'src="{basepath}')
                                  
     destination_parent = os.path.dirname(dest_path)
     if destination_parent and not os.path.exists(destination_parent):
